@@ -15,7 +15,7 @@ import { getRabbitMQConfig } from '../../config/rabbitmq.config';
     ClientsModule.register([
       {
         name: 'LEADS_SERVICE',
-        ...getRabbitMQConfig(),
+        ...getRabbitMQConfig(true),
       },
     ]),
   ],

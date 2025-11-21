@@ -1,6 +1,6 @@
 import { RmqOptions, Transport } from '@nestjs/microservices';
 
-export const getRabbitMQConfig = (): RmqOptions => ({
+export const getRabbitMQConfig = (noAck = false): RmqOptions => ({
   transport: Transport.RMQ,
   options: {
     urls: [process.env.RABBITMQ_URI || 'amqp://localhost:5672'],
@@ -8,6 +8,6 @@ export const getRabbitMQConfig = (): RmqOptions => ({
     queueOptions: {
       durable: false,
     },
-    noAck: false,
+    noAck,
   },
 });
