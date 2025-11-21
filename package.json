@@ -1,5 +1,5 @@
 {
-  "name": "e-gest-leads-api",
+  "name": "quobo-landing-api",
   "version": "0.0.1",
   "description": "",
   "author": "",
@@ -36,7 +36,6 @@
     "amqplib": "^0.10.9",
     "class-transformer": "^0.5.1",
     "class-validator": "^0.14.2",
-    "cron": "^4.3.4",
     "handlebars": "^4.7.8",
     "nodemailer": "^7.0.10",
     "reflect-metadata": "^0.2.2",
