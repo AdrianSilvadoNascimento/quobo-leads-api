@@ -1,17 +1,264 @@
 <!DOCTYPE html>
-<html>
+<html lang='pt-BR'>
+  <head>
+    <meta charset='UTF-8' />
+    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+    <title>Bem-vindo à Lista de Espera</title>
+    <style>
+      /* Reset básico para garantir consistência entre clientes de email (Gmail, Outlook, etc) */
+      body {
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f7;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        -webkit-font-smoothing: antialiased;
+      }
+      table {
+        border-spacing: 0;
+        border-collapse: collapse;
+      }
+      td {
+        padding: 0;
+      }
+      img {
+        border: 0;
+      }
 
-<head>
-    <meta charset="utf-8">
-    <title>Welcome!</title>
-</head>
+      /* Estilos principais */
+      .wrapper {
+        width: 100%;
+        table-layout: fixed;
+        background-color: #f4f4f7;
+        padding-bottom: 40px;
+      }
+      .main-table {
+        background-color: #ffffff;
+        margin: 0 auto;
+        width: 100%;
+        max-width: 600px;
+        border-spacing: 0;
+        font-family: sans-serif;
+        color: #171a1b;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      }
 
-<body>
-    <h1>Bem vindo!</h1>
-    <p>Olá,</p>
-    <p>Seja bem vindo(a) à fila de acesso antecipado.</p>
-    <p>Seu email cadastrado é: {{email}}</p>
-    <p>Atenciosamente,<br>Equipe</p>
-</body>
+      /* Header com o Logo */
+      .header {
+        background-color: #ffffff;
+        padding: 30px 40px;
+        text-align: center;
+        border-bottom: 1px solid #f0f0f0;
+      }
 
+      /* Corpo do Email */
+      .content {
+        padding: 40px;
+      }
+      .headline {
+        font-size: 24px;
+        font-weight: 700;
+        color: #1a1a1a;
+        margin-bottom: 16px;
+        line-height: 1.3;
+      }
+      .text-body {
+        font-size: 16px;
+        line-height: 1.6;
+        color: #555555;
+        margin-bottom: 20px;
+      }
+
+      /* Caixa de Destaque para o Email */
+      .info-box {
+        background-color: #f8fafc;
+        border: 1px solid #e2e8f0;
+        border-radius: 6px;
+        padding: 15px;
+        margin: 25px 0;
+        text-align: center;
+        color: #475569;
+        font-size: 15px;
+      }
+      .user-email {
+        color: #2563eb; /* Azul baseado no seu logo */
+        font-weight: 600;
+        text-decoration: none;
+      }
+
+      /* Botão */
+      .button-container {
+        text-align: center;
+        margin-top: 30px;
+        margin-bottom: 10px;
+      }
+      .button {
+        background-color: #2563eb; /* Azul vibrante */
+        color: #ffffff !important;
+        padding: 14px 30px;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 16px;
+        display: inline-block;
+        box-shadow: 0 4px 6px rgba(37, 99, 235, 0.2);
+      }
+
+      /* Footer */
+      .footer {
+        background-color: #f4f4f7;
+        padding: 30px;
+        text-align: center;
+        font-size: 12px;
+        color: #999999;
+      }
+      .footer a {
+        color: #999999;
+        text-decoration: underline;
+      }
+
+      /* Responsividade */
+      @media screen and (max-width: 600px) {
+        .content {
+          padding: 25px !important;
+        }
+        .header {
+          padding: 20px !important;
+        }
+        .headline {
+          font-size: 20px !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class='wrapper'>
+      <br />
+      <!-- Início do Container Principal -->
+      <table class='main-table' role='presentation'>
+
+        <!-- HEADER: Logo -->
+        <tr>
+          <td class='header'>
+            <!-- 
+                        DICA: Substitua o SVG abaixo pela URL da sua imagem hospedada (ex: seu-site.com/logo.png) 
+                        para garantir que apareça em todos os emails. Como este é um preview, coloquei o SVG inline.
+                    -->
+            <svg
+              width='60'
+              height='60'
+              viewBox='0 0 100 100'
+              fill='none'
+              xmlns='http://www.w3.org/2000/svg'
+            >
+              <rect
+                x='25'
+                y='25'
+                width='50'
+                height='50'
+                rx='4'
+                fill='#2563eb'
+              />
+              <path d='M25 25 L40 15 L90 15 L75 25' fill='#60a5fa' />
+              <path d='M75 25 L90 15 L90 65 L75 75' fill='#1e40af' />
+              <!-- Detalhes das "cantoneiras" brancas do seu logo original -->
+              <path
+                d='M20 20 H35 M20 20 V35'
+                stroke='white'
+                stroke-width='4'
+                stroke-linecap='round'
+              />
+              <path
+                d='M80 20 H65 M80 20 V35'
+                stroke='white'
+                stroke-width='4'
+                stroke-linecap='round'
+              />
+              <path
+                d='M20 80 H35 M20 80 V65'
+                stroke='white'
+                stroke-width='4'
+                stroke-linecap='round'
+              />
+              <path
+                d='M80 80 H65 M80 80 V65'
+                stroke='white'
+                stroke-width='4'
+                stroke-linecap='round'
+              />
+            </svg>
+          </td>
+        </tr>
+
+        <!-- CONTEÚDO PRINCIPAL -->
+        <tr>
+          <td class='content'>
+            <h1 class='headline'>Você está dentro! 🚀</h1>
+
+            <p class='text-body'>
+              Olá,
+            </p>
+
+            <p class='text-body'>
+              É ótimo ter você interessado em nosso projeto. Estamos construindo
+              algo especial e ficamos muito felizes pelo seu interesse em
+              participar dessa jornada conosco.
+            </p>
+
+            <p class='text-body'>
+              Você garantiu oficialmente seu lugar na nossa
+              <strong>Fila de Acesso Antecipado</strong>. Assim, você será uma
+              das primeiras pessoas a saber do lançamento.
+            </p>
+
+            <!-- Caixa de Confirmação de Dados -->
+            <div class='info-box'>
+              Seu email cadastrado:<br />
+              <a href='mailto:{{email}}' class='user-email'>{{email}}</a>
+            </div>
+
+            <p class='text-body'>
+              Enquanto isso, fique à vontade para nos acompanhar nas redes
+              sociais.
+            </p>
+
+            <div class='button-container'>
+              <!-- Link do seu site ou rede social -->
+              <a href='https://use.quobo.io/' class='button'>Visitar nosso site</a>
+            </div>
+          </td>
+        </tr>
+
+        <!-- ASSINATURA -->
+        <tr>
+          <td style='padding: 0 40px 40px 40px; text-align: left;'>
+            <p class='text-body' style='margin: 0; font-style: italic;'>
+              Um abraço,<br />
+              <strong>Equipe Quobo</strong>
+            </p>
+          </td>
+        </tr>
+      </table>
+
+      <!-- RODAPÉ (FOOTER) -->
+      <table
+        role='presentation'
+        style='width: 100%; max-width: 600px; margin: 0 auto;'
+      >
+        <tr>
+          <td class='footer'>
+            <p style='margin-bottom: 10px;'>
+              © 2025 Quobo Inc. Todos os direitos reservados.
+            </p>
+            <p>
+              Você recebeu este email porque se inscreveu em nossa lista de
+              espera.<br />
+            </p>
+          </td>
+        </tr>
+      </table>
+      <br />
+    </div>
+  </body>
 </html>
